@@ -18,3 +18,11 @@ indent-style = "space"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "kagglehub>=1.0.2",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.6",
+]

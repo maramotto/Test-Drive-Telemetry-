@@ -1,5 +1,15 @@
-CONTEXT.md
+# Private prep notes
 tdt-plan.md
 
 .env
-.idea
+.idea/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Data: ignore everything except samples
+data/*
+!data/samples/

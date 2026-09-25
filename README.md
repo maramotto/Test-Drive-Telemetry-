@@ -1,17 +1,27 @@
 # Test Drive Telemetry
 
-A backend platform that ingests vehicle test-drive telemetry, processes it asynchronously and exposes results through a REST API and a simple web dashboard.
+A backend platform that ingests vehicle test-drive telemetry, processes it asynchronously and exposes results through a REST API and a simple web dashboard. It simulates the kind of R&D data platform an automotive company runs on the cloud.
+
+**Status:** work in progress.
+
+## Getting started
+
+```bash
+uv sync
+uv run scripts/download_dataset.py
+```
 
 ## Dataset
 
-Real trip data comes from:
+> "Battery and Heating Data in Real Driving Cycles", Matthias Steinstraeter, Johannes Buberger, Dimitar Trifonov, Institute of Automotive Technology, Technical University of Munich (TUM). IEEE DataPort, DOI [10.21227/6jr9-5235](https://dx.doi.org/10.21227/6jr9-5235).
 
-> Matthias Steinstraeter, Johannes Buberger, Dimitar Trifonov, "Battery and Heating Data in Real Driving Cycles," IEEE Dataport, October 19, 2020, doi: [10.21227/6jr9-5235](https://dx.doi.org/10.21227/6jr9-5235).
+- Downloaded from the Kaggle mirror [`atechnohazard/battery-and-heating-data-in-real-driving-cycles`](https://www.kaggle.com/datasets/atechnohazard/battery-and-heating-data-in-real-driving-cycles), pinned to version 1 (see `scripts/download_dataset.py`).
+- 70 trips of a BMW i3 (60 Ah), 10 Hz, summer and winter.
+- Dataset license: Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+- The platform is OEM-agnostic; this dataset is just the first source adapter.
 
-72 real trips of a 2014 BMW i3 (60 Ah), Munich, sampled at 10 Hz, summer and winter. Hosted on [IEEE DataPort](https://ieee-dataport.org/open-access/battery-and-heating-data-real-driving-cycles) as Open Access; the source page does not state explicit license terms beyond that, so treat it accordingly if you plan to redistribute anything beyond the small samples in `data/samples/` used for tests.
+## License
 
-A synthetic test fleet is derived from these trips for development and demo purposes — see `scripts/generate_fleet.py` once added, and `docs/context.md` for what's real vs. synthetic.
-
-## Status
-
-Work in progress.
+Code in this repository is MIT licensed (see LICENSE). The dataset is
+licensed CC BY 4.0 by its authors and is not included in this repository;
+see the Dataset section for attribution.
